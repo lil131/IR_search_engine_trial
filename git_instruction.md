@@ -45,7 +45,7 @@ git reset HEAD~1
   git log
   ```
 
-#### if comflicts exist:
+### if comflicts exist:
 **4-1. copy new commits to local repo**
 ```shell
 git fetch origin master
@@ -133,8 +133,9 @@ git branch --unset-upstream
   ```
 
 
-#### gitignore
+### gitignore
 `.gitignore` is to prevent untracked files from being tracked. if files are already tracked:
+
 **1. remove from cache:**
 ```shell
 git rm --cached <filename>
