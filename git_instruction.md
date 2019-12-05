@@ -142,3 +142,6 @@ git rm --cached <filename>
 git rm -r --cached <foldername>
 ```
 **2. after remove, `commit` the changes without `add`.**
+
+**3. gitignore patterns**
+[patterns to match files](https://www.atlassian.com/git/tutorials/saving-changes/gitignore#git-ignore-patterns)
