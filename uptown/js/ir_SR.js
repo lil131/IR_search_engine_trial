@@ -1,4 +1,4 @@
-// const userQuery = "user query";
+const userQuery = "user query";
 const movie = {
     movieID: "00000",
     movieName: "Title",
@@ -40,7 +40,7 @@ console.log(movieList);
       let div3 = createNode('div');
       div3.className = 'text text-2 pl-md-4';
 
-          div4 = createNode('div'),
+      let div4 = createNode('div'),
           a_img = createNode('a'),
           a_btn = createNode('a'),
           a_title = createNode('a'),
@@ -48,10 +48,9 @@ console.log(movieList);
           p1 = createNode('p'),
           p_des = createNode('p'),
           p_more = createNode('p'),
-          span1 = createNode('span');
+          span1 = createNode('span'),
           span2 = createNode('span');
-          moviePageURL = movie_url + movie.movieID;
-      
+      moviePageURL = movie_url + movie.movieID;
       
       div4.className = 'meta-wrap';
       a_img.className = 'img img-2';
@@ -62,6 +61,7 @@ console.log(movieList);
       a_btn.innerHTML = 'Read More >';
       h3.className = 'mb-2';
       a_title.href = moviePageURL;
+      a_title.innerHTML = movie.movieName;
       p1.className = 'meta';
       p_des.className = 'mb-4';
       p_des.innerHTML = movie.description;
