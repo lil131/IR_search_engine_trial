@@ -14,7 +14,10 @@ const redirectURL = "fashion.html";
 function submitQuery(){
     console.log("click")
     const userQuery = document.getElementById("user-query").value;
-    if (userQuery.length < 1) return;
+    
+    if (userQuery.length < 1) {
+        return;
+    }
     const encodedQuery = encodeURIComponent(userQuery);
-    window.location.replace(redirectURL + '?' + encodedQuery);
+    window.location.href = redirectURL + '?' + encodedQuery;
 }

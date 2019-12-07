@@ -71,7 +71,7 @@ function append(parent, element) {
           p_more = createNode('p'),
           span1 = createNode('span'),
           span2 = createNode('span');
-      moviePageURL = movie_url + movie.movieID;
+      moviePageURL = url + movie.movieID;
       
       div4.className = 'meta-wrap';
       a_img.className = 'img img-2';
