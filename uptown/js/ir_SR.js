@@ -8,22 +8,43 @@ const movie = {
     description: "one long sentence",
     director: "xxx",
 };
-
 const movies = [movie, movie, movie];
-function createNode(element) {
-    return document.createElement(element);
-}
-function append(parent, element) {
-    return parent.appendChild(element);
-  }
-const url = 'https://randomuser.me/api/?results=10';
-// const movie_url = 'xxx/movieID=';
-const movie_url = '';
 
+
+const currentURL = "fashion.html";
+const query = window.location.search.substr(1);
+const decodedQ = decodeURIComponent(query);
+document.getElementById("user-query").placeholder = decodedQ;
+
+function submitQuery(){
+  const userQuery = document.getElementById("user-query").value;
+  const encodedQuery = encodeURIComponent(userQuery);
+  const redirectURL = currentURL + '?' + encodedQuery;
+  location.replace(redirectURL);
+}
+
+// function processQuery()
+//   {
+//     var parameter = window.location.search.substr(1); //substr() to rm '?'.
+//     var decodedQuery = decodeURIComponent(parameter);
+//     document.getElementById("user-query").placeholder = decodedQuery;
+//   }
+
+
+// const url = 'https://randomuser.me/api/?results=10';
+// const movie_url = 'xxx/movieID=';
+const url = window.location.search;
 const movieList = document.getElementById("movie_list");
 console.log(movieList);
+function createNode(element) {
+  return document.createElement(element);
+}
+function append(parent, element) {
+  return parent.appendChild(element);
+}
+
 // fetch(url)
-//   .then((resp) => resp.json()) 
+//   .then((res) => res.json()) 
 //   .then(function(data) {
 //     let movies = data.results; 
 //     return
