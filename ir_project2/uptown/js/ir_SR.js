@@ -17,7 +17,7 @@ const query = window.location.search.substr(1);
 console.log("query: " + query)
 const decodedQ = decodeURIComponent(query);
 console.log("decodedQ: " + decodedQ)
-document.getElementById("user-query").placeholder = decodedQ;
+document.getElementById("user-query").value = decodedQ;
 
 
 function submitQuery() {
