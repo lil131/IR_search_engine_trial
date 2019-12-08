@@ -1,3 +1,4 @@
 *.zip
 /andrea
 /uptown 2
+.DS_Store
