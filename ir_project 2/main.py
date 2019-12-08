@@ -41,6 +41,8 @@ nltk.download("stopwords")
 #     no = result.getDocNo()
 #     print(newq, ' ', rank, ' ', database[no])
 #     rank += 1
+
+
 class searchmov:
 
     # query = 'harry potter destroy Voldemort'
@@ -48,7 +50,8 @@ class searchmov:
         self.stemmer2 = EnglishStemmer()
         self.STOPWORDS = set(stopwords.words('english'))
         index = MyIndexReader.MyIndexReader()
-        self.pesudo_search = PseudoRFRetrievalModel.PseudoRFRetreivalModel(index)
+        self.pesudo_search = PseudoRFRetrievalModel.PseudoRFRetreivalModel(
+            index)
         self.originalsearch = original.QueryRetrievalModel(index)
         base = createdb.createBase()
         self.database = base.database
@@ -65,6 +68,7 @@ class searchmov:
             if stem_word not in self.STOPWORDS:
                 normal += (stem_word + ' ')
         return normal
+
     def searchmovie(self, query):
         newq = self.normalQuery(query)
         print(newq)
@@ -81,7 +85,7 @@ class searchmov:
             res['rating'] = self.database[no][1]
             res['description'] = self.database[no][2]
             res['storyline'] = self.database[no][3]
-            res['webpage'] = self.database[no][4]
+            res['imdbURL'] = self.database[no][4]
             res['poster'] = self.database[no][5]
             res = json.dumps(res)
             print(res)
@@ -89,17 +93,28 @@ class searchmov:
             response.append(res)
             rank += 1
         return response
-    def searchonemovie(self,no):
+
+    def searchonemovie(self, no):
         res = {}
         res['id'] = no
         res['name'] = self.database[no][0]
         res['rating'] = self.database[no][1]
         res['description'] = self.database[no][2]
         res['storyline'] = self.database[no][3]
-        res['webpage'] = self.database[no][4]
+        res['imdbURL'] = self.database[no][4]
         res['poster'] = self.database[no][5]
         res = json.dumps(res)
         return res
+
+
 query = 'harry'
-search=searchmov()
-print(search.searchmovie(query))
+# search = searchmov()
+# print(search.searchmovie(query))
+
+def run(query):
+    search = searchmov()
+    return search.searchmovie(query)
+
+def runOne(id):
+    search = searchmov()
+    return search.searchonemovie(id)
