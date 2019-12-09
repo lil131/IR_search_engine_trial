@@ -18,6 +18,10 @@ git status
 ```shell
 git add .
 ```
+- to restore changes:
+```shell
+git checkout <file name>
+```
 
 **3. commit changes**
 ```shell
