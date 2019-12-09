@@ -78,7 +78,7 @@ fetch("http://0.0.0.0:5000/search/" + decodedQ)
             a_img.className = 'img img-2';
             a_img.href = moviePageURL;
             poster_link = movie.poster
-            poster_link = poster_link.replace("https", "http");
+                // poster_link = poster_link.replace("https", "http");
             a_img.style = 'background-image: url(' + poster_link + ');';
             append(div2, a_img);
 
