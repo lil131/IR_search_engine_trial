@@ -56,6 +56,10 @@ fetch("http://0.0.0.0:5000/searchone/" + para)
         append(movieInfo, p4);
 
         document.getElementById("poster").src = movie.poster;
+        
+        const titleTag = document.querySelector("title"); // returns the 1st match
+        titleTag.innerHTML = "M - " + movie.name;
+
     })
     .catch(function(error) {
         console.log(error);

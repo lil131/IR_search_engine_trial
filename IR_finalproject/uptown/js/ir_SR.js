@@ -64,7 +64,20 @@ fetch("http://0.0.0.0:5000/search/" + decodedQ)
             movie = JSON.parse(movie)
             console.log(movie.poster)
 
+            // extract director info:
             let moviePageURL = "single.html?" + movie.id;
+            const storylineList = movie.description.split(".");
+            const director = storylineList[0];
+
+            // extract storyline:
+            var regex = RegExp(/^\s\sWith/);
+            if (regex.test(storylineList[1])){
+                var storyline = storylineList.slice(2);
+            } else {
+                var storyline = storylineList.slice(1);
+            }
+            console.log(regex.test(storylineList[1]));
+            console.log("extracted: ", storyline);
 
             let div1 = createNode('div');
             div1.className = 'col-md-12';
@@ -102,14 +115,28 @@ fetch("http://0.0.0.0:5000/search/" + decodedQ)
             let p1 = createNode('p');
             p1.className = 'meta';
             append(div4, p1);
+            let p_story = createNode('p');
+            p_story.innerHTML = storyline;
+            append(div4, p_story);
 
             let span = createNode('span');
             span.innerHTML = 'Rating: ' + movie.rating;
             append(p1, span);
 
+            let nextline = createNode('br');
+            append(p1, nextline);
+            
+            let span_D = createNode('span');
+            span_D.innerHTML = director;
+            append(p1, span_D);
+
             let p_imdb = createNode('p');
             p_imdb.className = 'mb-4';
             append(div3, p_imdb);
+            let a_imdb = createNode('a');
+            a_imdb.innerHTML = "IMDb homepage";
+            a_imdb.href = movie.imdbURL
+            append(p_imdb, a_imdb);
 
             let p_more = createNode('p');
             append(div3, p_more);
@@ -120,6 +147,7 @@ fetch("http://0.0.0.0:5000/search/" + decodedQ)
             a_btn.innerHTML = 'Read More >';
             append(p_more, a_btn);
 
+            
         })
     })
     .catch(function(error) {
